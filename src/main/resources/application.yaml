@@ -1,0 +1,32 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: 'TRUE'
+
+    hibernate:
+      ddl-auto: update
+    open-in-view: 'false'
+    hiddenmethod:
+      filter:
+        enabled: 'true'
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: AlexNikola1!
+    username: root
+    url: jdbc:mysql://localhost:3306/events?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor: TRACE
+        SQL: DEBUG
+      nodeValue: WARN
+    blog: WARN
+server:
+  port: 8080
+buttercms:
+  key: 'c25ec445a7fd524cc7dd64867e8de5e452b85f9f'
+

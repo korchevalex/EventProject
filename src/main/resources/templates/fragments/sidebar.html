@@ -1,0 +1,54 @@
+<div id="sidebar" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="inner">
+
+        <!-- Menu -->
+        <nav id="menu">
+            <header class="major">
+                <h2>Меню</h2>
+            </header>
+            <ul>
+                <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/admin}">АДМИНИСТРАТОР</a></li>
+                <li><a href="/">Начална страница</a></li>
+                <li sec:authorize="isAnonymous()"><a href="/users/login">Вход</a></li>
+                <li sec:authorize="isAnonymous()"><a href="/users/register">Регистрация</a></li>
+                <li><a href="/events/upcoming">Предстоящи събития</a></li>
+                <li><a href="/events">Всички събития</a></li>
+                <li><a href="/clubs">Клубове</a></li>
+                <li><a href="/reviews">Отзиви</a></li>
+                <li sec:authorize="isAuthenticated()">
+                    <form th:method="POST" th:action="@{/users/logout}">
+                        <button class="button fit">Изход</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Свържете се с нас</h2>
+            </header>
+            <ul class="contact">
+                <li class="icon solid fa-envelope"><a href="mailto:info-2205407@edu.mon.bg">info-2205407@edu.mon.bg</a></li>
+                <li class="icon solid fa-envelope"><a href="mailto:spgelectron@yahoo.co.uk">spgelectron@yahoo.co.uk</a></li>
+                <li class="icon solid fa-phone">(359 2) 872 00 47</li>
+                <li class="icon solid fa-phone">(359 2) 872 00 37</li>
+                <li class="icon solid fa-fax">(359 2) 872 07 81</li>
+                <li class="icon solid fa-home">България,<br/>
+                    1113 гр. София,<br/>
+                    ул. "Райко Алексиев" 48</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="mini-posts">
+                <article>
+                    <a href="https://buttercms.com/" class="image"><img src="https://cdn.buttercms.com/PGJPyIwaQ2KnOA8UyKfH" alt=""></a>
+                </article>
+            </div>
+            <p class="copyright">Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+        </footer>
+
+    </div>
+</div>

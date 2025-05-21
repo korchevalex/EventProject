@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Отзиви</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Main -->
+  <div id="main">
+    <div class="inner">
+
+      <!-- Header -->
+      <header th:replace="~{fragments/navbar.html}" id="header">
+      </header>
+
+      <!-- Banner -->
+      <section id="banner">
+        <div class="content">
+          <header>
+            <h1>Отзиви</h1>
+            <h2 class="pt-4">Вашето мнение прави събитията по-добри!</h2>
+          </header>
+        </div>
+      </section>
+
+      <div id="row gtr-200">
+        <form th:method="post" th:action="@{/reviews}" th:object="${reviewDTO}">
+          <div class="row gtr-uniform">
+            <div class="col-12">
+              <label for="author"></label>
+              <input th:field="*{author}" type="text" name="author" id="author" value="" placeholder="Име" />
+              <div th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+            </div>
+            <div class="col-12">
+              <label for="text"></label>
+              <textarea th:field="*{text}" name="text" id="text" placeholder="Напишете Вашия отзив" rows="6"></textarea>
+              <div th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></div>
+            </div>
+            <div class="col-12">
+              <ul class="actions">
+                <li><input type="submit" value="Изпратете отзив" class="primary" /></li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+
+    </div>
+    <footer th:replace="~{fragments/footer.html}" class="pt-4">
+    </footer>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/browser.min.js"></script>
+<script src="/js/breakpoints.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

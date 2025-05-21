@@ -1,0 +1,17 @@
+<header id="header">
+  <ul class="icons d-flex align-items-center">
+    <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/admin}">АДМИНИСТРАТОР</a></li>
+    <li><a class="img fit" href="/"><img class="spge" src="/images/logo.png"></a></li>
+    <li><a href="/events/upcoming">ПРЕДСТОЯЩИ СЪБИТИЯ</a></li>
+    <li><a href="/events">ВСИЧКИ СЪБИТИЯ</a></li>
+    <li><a href="/clubs">ЗАНИМАНИЯ ПО ИНТЕРЕСИ</a></li>
+    <li><a href="/gallery">ГАЛЕРИЯ</a></li>
+    <li><a href="/reviews">ОТЗИВИ</a></li>
+    <li><a href="/contacts">КОНТАКТИ</a></li>
+    <li sec:authorize="isAuthenticated()">
+      <form th:method="POST" th:action="@{/users/logout}">
+        <button class="button fit">Изход</button>
+      </form>
+    </li>
+  </ul>
+</header>
